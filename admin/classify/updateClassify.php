@@ -24,18 +24,13 @@ if(isset($_REQUEST['column_id'])){
 <head>
     <meta charset="UTF-8">
     <title>更改分类</title>
-    <script type="text/javascript" src="classify.js" ></script>
+    <script type="text/javascript" src="../classify.js" ></script>
 </head>
 <body>
 分类名:<input type="text" id="column_name" value="<?php if(isset($column_name)) echo $column_name; else echo "";?>" />
 <button onclick="updateClassifyOK()">确定</button>
 </body>
-<script>
-    function updateClassifyOK(){
-        alert(123);
-    }
 
-</script>
 </html>
 
 

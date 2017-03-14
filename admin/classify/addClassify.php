@@ -47,7 +47,6 @@ if(isset($_REQUEST['column_name']) && !isset($_REQUEST['column_id'])){
 <body>
 分类名:<input type="text" id="column_name" />
     <button onclick="addClassifyOK()">确定</button>
-<!--        <button onclick="addClassifyOK()">确定</button>-->
 </body>
 </html>
 

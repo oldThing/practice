@@ -1,6 +1,3 @@
-function updateClassifyOK (){
-    alert("123");
-}
 function addClassifyOK(){
     var column_name = document.getElementById("column_name").value;
     var postData = {
@@ -23,7 +20,7 @@ function addClassifyOK(){
             console.log(xhr.responseText);
             var info = eval('('+xhr.responseText+')');
             // console.log(info);
-            if(info.errorNo){
+            if(info.errorNo == 0){
                 // window.setTimeout("window.location='classify.php'", 1000);
                 window.location.href = "classify.php";
                 // alert(info.errorNo);
