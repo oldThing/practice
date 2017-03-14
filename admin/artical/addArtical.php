@@ -6,6 +6,7 @@
  * Time: 14:15
  */
 include "../../MyPDO.class.php";
+
 $db = MyPDO::getInstance('localhost', 'root', '', 'practice', 'utf-8');
 const TABLE_C = "t_classify";
 const TABLE_A = "t_artical";
@@ -44,6 +45,10 @@ if (isset($_REQUEST["artical_title"])) {
 //获得栏目信息
 $sqlStr = "select * from ". TABLE_C;
 $classifys = $db->query($sqlStr);
+
+
+//分页操作
+
 
 
 ?>

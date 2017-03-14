@@ -7,6 +7,7 @@
  * Time: 16:07
  */
 header("Content-type: text/html; charset=utf-8");
+
 class MyPDO
 {
     private static $_instace;
@@ -44,8 +45,8 @@ class MyPDO
     /**
      * 查询操作
      * @param $sqlStr                       查询语句
-     * @param string $queryModel            结果的类型
-     * @param bool $debug                   显示debug调试
+     * @param string $queryModel 结果的类型
+     * @param bool $debug 显示debug调试
      * @return array|mixed|null             返回结果集
      */
     public function query($sqlStr, $queryModel = "All", $debug = false)
@@ -70,7 +71,7 @@ class MyPDO
      * 添加操作
      * @param $table                 表
      * @param $arrayDataValue        键值对
-     * @param bool $debug            调试模式
+     * @param bool $debug 调试模式
      * @return int                   受影响的行数
      */
     public function insert($table, $arrayDataValue, $debug = false)
@@ -114,8 +115,8 @@ class MyPDO
     /**
      * 删除操作
      * @param $table              表
-     * @param string $where       删除条件
-     * @param bool $debug         是否打开调试
+     * @param string $where 删除条件
+     * @param bool $debug 是否打开调试
      * @return int                受影响的行数
      */
     public function delete($table, $where = '', $debug = false)
@@ -124,7 +125,7 @@ class MyPDO
             $this->outputError("WHERE IS NULL");
         } else {
             $strSql = "DELETE FROM `$table` WHERE $where";
-            if($debug) $this->debug($strSql);
+            if ($debug) $this->debug($strSql);
             $result = self::$_db->exec($strSql);
             $this->getPDOError();
             return $result;
@@ -134,11 +135,12 @@ class MyPDO
     /**
      * 执行sql语句的操作
      * @param $sqlStr           SQL语句
-     * @param bool $debug       打开调试
+     * @param bool $debug 打开调试
      * @return int              受影响的行数
      */
-    public function execSql($sqlStr, $debug = false){
-        if($debug) $this->debug($sqlStr);
+    public function execSql($sqlStr, $debug = false)
+    {
+        if ($debug) $this->debug($sqlStr);
         $result = self::$_db->exec($sqlStr);
         $this->getPDOError();
         return $result;
@@ -175,7 +177,15 @@ class MyPDO
         }
 
         return $fields;
+    }
 
+    public function getCount($table, $filed, $where = "", $debug = false)
+    {
+        $sql = "select count($filed) as num from " . $table;
+        if ($where != "") $sql .= "where $where";
+        if ($debug) $this->debug($sql);
+        $arrResult = $this->query($sql,'Row');
+        return $arrResult['num'];
     }
 
     /**
