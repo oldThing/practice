@@ -11,9 +11,10 @@ $column_id = $_REQUEST['column_id'];
 $table = "t_classify";
 $where = "column_id = " . $column_id;
 $url = "./classify.php";
-$result = $db->delete($table, $where, true);
+$result = $db->delete($table, $where);
 //页面的跳转
-if($result){
-
+if ($result) {
+    echo "<script>alert('删除成功!'); window.location.href='../classify.php';</script>";
+} else {
+    echo "<script>alert('删除失败!')</script>";
 }
-echo $result;

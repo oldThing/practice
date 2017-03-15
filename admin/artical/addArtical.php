@@ -20,12 +20,12 @@ if (isset($_REQUEST["artical_title"])) {
     }
     //进行入库
     $arrayDataValue = [
-        'artical_title'     =>     $title,
-        'artical_comment'   =>     $artical_comment,
-        'column_id'         =>     $column_id
+        'artical_title' => $title,
+        'artical_comment' => $artical_comment,
+        'column_id' => $column_id
     ];
-    $result = $db->insert(TABLE_A,$arrayDataValue);
-    if($result > 0){
+    $result = $db->insert(TABLE_A, $arrayDataValue);
+    if ($result > 0) {
         //添加成功
         $errorCode = [
             "errorNo" => "0",
@@ -43,13 +43,8 @@ if (isset($_REQUEST["artical_title"])) {
 }
 
 //获得栏目信息
-$sqlStr = "select * from ". TABLE_C;
+$sqlStr = "select * from " . TABLE_C;
 $classifys = $db->query($sqlStr);
-
-
-//分页操作
-
-
 
 ?>
 <!DOCTYPE html>
@@ -65,7 +60,7 @@ $classifys = $db->query($sqlStr);
 所属栏目：
 <?php if (isset($classifys)): ?>
     <?php foreach ($classifys as $item): ?>
-        <input name="column_id" type="radio" value="1"/><?php echo $item['column_name'] ?>
+        <input name="column_id" type="radio" value="<?php echo $item['column_id'];?>"/><?php echo $item['column_name'] ?>
     <?php endforeach; ?>
 <?php else: ?>
     目前暂时没有分类

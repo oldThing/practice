@@ -9,7 +9,7 @@ function replayOK() {
     var xhr = new XMLHttpRequest();
     var postData = {
         "replay": replayMessage,
-        "message_id":messageID
+        "message_id": messageID
     }
 
     var postData = (function (obj) { // 转成post需要的字符串.
@@ -22,10 +22,10 @@ function replayOK() {
 
     xhr.onreadystatechange = function () {
         // alert(xhr.readyState);
-        if(xhr.readyState == "4"){
+        if (xhr.readyState == "4") {
             //接收到响应结果的数据
             // alert(xhr.responseText);
-            var info = eval('('+xhr.responseText+')');
+            var info = eval('(' + xhr.responseText + ')');
             alert(info.message);
         }
     }

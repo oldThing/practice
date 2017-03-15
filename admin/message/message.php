@@ -57,11 +57,11 @@ $pageStr = $page->fpage();
         var xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4){
+            if (xhr.readyState == 4) {
                 document.getElementById("result3").innerHTML = xhr.responseText;
             }
         }
-        xhr.open("get",url);
+        xhr.open("get", url);
         xhr.send();
     }
 </script>

@@ -32,24 +32,26 @@ $pageStr = $page->fpage();
         <th>标题</th>
         <th>内容</th>
         <th>所属栏目</th>
+        <th>是否加红</th>
+        <th>是否置顶</th>
         <th>操作</th>
     </tr>
     <?php foreach ($result as $key => $value): ?>
-        <tr>
+        <tr style="text-align: center;">
             <td><?php echo($key + 1); ?></td>
             <td><?php echo $value['artical_title']; ?></td>
             <td><?php echo $value['artical_comment']; ?></td>
             <td><?php echo $value['column_id']; ?></td>
+            <td><a href="<?php echo $value['is_red'] == 0? 'titlered.php':'canclered.php';?>/?artical_id=<?php echo $value['artical_id'] ?>"><?php echo $value['is_red'] == 1 ? "取消加红":"未加红";?></a></td>
+            <td><a href="<?php echo $value['is_top'] == 0? 'stick.php':'canclestick.php'?>/?artical_id=<?php echo $value['artical_id'] ?>"><?php echo $value['is_top'] == 1 ? "取消置顶":"未置顶";?></a></td>
             <td>
-                <a href="titlered.php/?artical_id=<?php echo $value['artical_id'] ?>">标题加红</a>
-                <a href="stick.php/?artical_id=<?php echo $value['artical_id'] ?>">置顶</a>
-                <a href="#">删除</a>
-                <a href="#">修改</a>
+                <a href="delartical.php/?artical_id=<?php echo $value['artical_id']?>">删除</a>
+                <a href="upartical.php/?artical_id=<?php echo $value['artical_id']?>&method=updateShow">修改</a>
             </td>
         </tr>
     <?php endforeach; ?>
-    <tr>
-        <td colspan="5"><?php echo $pageStr ?></td>
+    <tr style="text-align: center;">
+        <td colspan="7"><?php echo $pageStr ?></td>
     </tr>
 </table>
 </body>

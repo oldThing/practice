@@ -25,7 +25,7 @@ $pageStr = $page->fpage();
 </head>
 <body id="result2">
 <a href="../index.html">首页</a><a href="addClassify.php">添加分类</a>
-<table  style="border: 1px solid">
+<table style="border: 1px solid">
     <tr>
         <th>分类ID</th>
         <th>分类名</th>
@@ -43,7 +43,7 @@ $pageStr = $page->fpage();
         </tr>
     <?php endforeach; ?>
     <tr>
-        <td colspan="3"><?php echo $pageStr;?></td>
+        <td colspan="3"><?php echo $pageStr; ?></td>
     </tr>
 </table>
 </body>
@@ -51,11 +51,11 @@ $pageStr = $page->fpage();
     function showpage(url) {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
-            if(xhr.readyState == 4){
+            if (xhr.readyState == 4) {
                 document.getElementById('result2').innerHTML = xhr.responseText;
             }
         }
-        xhr.open('get',url);
+        xhr.open('get', url);
         xhr.send(null);
     }
 </script>

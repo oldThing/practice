@@ -7,11 +7,11 @@
  */
 include "../../MyPDO.class.php";
 header("Content-type: text/html; charset=utf-8");
-$db = MyPDO::getInstance('localhost','root','','practice','utf-8');
+$db = MyPDO::getInstance('localhost', 'root', '', 'practice', 'utf-8');
 /**
  * 添加操作
  */
-if(isset($_REQUEST['column_name']) && !isset($_REQUEST['column_id'])){
+if (isset($_REQUEST['column_name']) && !isset($_REQUEST['column_id'])) {
     $column_name = $_REQUEST['column_name'];
 
     $errorCode = [];
@@ -19,8 +19,8 @@ if(isset($_REQUEST['column_name']) && !isset($_REQUEST['column_id'])){
         "column_name" => $column_name,
     ];
     $table = "t_classify";
-    $result = $db->insert($table,$arrayDataValue);
-    if ($result){
+    $result = $db->insert($table, $arrayDataValue);
+    if ($result) {
         $errorCode = [
             "errorNo" => "0",
             "message" => "添加成功"
@@ -42,11 +42,11 @@ if(isset($_REQUEST['column_name']) && !isset($_REQUEST['column_id'])){
 <head>
     <meta charset="UTF-8">
     <title>添加分类</title>
-    <script type="text/javascript" src="classify.js" ></script>
+    <script type="text/javascript" src="classify.js"></script>
 </head>
 <body>
-分类名:<input type="text" id="column_name" />
-    <button onclick="addClassifyOK()">确定</button>
+分类名:<input type="text" id="column_name"/>
+<button onclick="addClassifyOK()">确定</button>
 </body>
 </html>
 
