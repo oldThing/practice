@@ -19,12 +19,7 @@ if ($_REQUEST['artical_id']) {
     $result = $db->update(TABLE_A, $arrayDataValue, $where);
     if ($result > 0) {
         //标题加红成功
-//        $errorCode = [
-//            "errorNo" => "0",
-//            "message" => "标题加红成功"
-//        ];
-
-        echo "<script>alert('操作成功!!'); window.location.href='../artical.php'</script>";
+        echo "<script>alert('操作成功!!'); history.go(-1)</script>";
     } else {
 //        $errorCode = [
 //            "errorNo" => "1",

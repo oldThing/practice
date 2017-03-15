@@ -12,14 +12,14 @@ if (isset($_REQUEST["message"])) {
     //进行入库操作
     //这里要进行判断，如果这个IP地址今天留言了三次，就提示说，今日留言已上限
     $arrayDataValue = [
-        "message"           =>          $_REQUEST["message"],
-        "message_time"      =>          time(),
-        "ip"                =>          $_REQUEST["ip"],
-        "artical_id"        =>          $_REQUEST["artical_id"]
+        "message" => $_REQUEST["message"],
+        "message_time" => time(),
+        "ip" => $_REQUEST["ip"],
+        "artical_id" => $_REQUEST["artical_id"]
     ];
     $result = $db->insert(TABLE_M, $arrayDataValue);
 //    var_dump($result);
-    if($result > 0){
+    if ($result > 0) {
         $errorCode = [
             "errorNo" => "0",
             "message" => "留言成功"
@@ -32,6 +32,4 @@ if (isset($_REQUEST["message"])) {
     }
     echo json_encode($errorCode);
     exit();
-//    echo $result;
-//    eixt();
 }

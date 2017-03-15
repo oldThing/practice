@@ -16,9 +16,8 @@ if (isset($_REQUEST['artical_id'])) {
     $result = $db->query($sql, 'Row');
     $ip = $_SERVER["REMOTE_ADDR"];
 
-    $sql2 = "select * from ".TABLE_M ." where artical_id = $artical_id";
+    $sql2 = "select * from " . TABLE_M . " where artical_id = $artical_id";
     $result2 = $db->query($sql2);
-
 
 //    var_dump($result2);
 }
@@ -35,16 +34,16 @@ if (isset($_REQUEST['artical_id'])) {
 <body>
 <h2><?php echo $result["artical_title"]; ?></h2>
 <label><?php echo $result["artical_comment"]; ?></label>
-<input id="artical_id" value="<?php echo $artical_id;?>" hidden/>
-<input id="ip" value="<?php echo $ip;?>" hidden/>
+<input id="artical_id" value="<?php echo $artical_id; ?>" hidden/>
+<input id="ip" value="<?php echo $ip; ?>" hidden/>
 <br/>
 <hr/>
-<?php foreach ($result2 as $item):?>
-留言人内容:<?php echo $item['message'];?><br/>
-回复留言内容:<?php echo $item['replay'];?><br/>
-留言时间:<?php echo date("Y-m-d H:i:s", $item['message_time']);?>
-<hr style="width: 99%"/>
-<?php endforeach;?>
+<?php foreach ($result2 as $item): ?>
+    留言人内容:<?php echo $item['message']; ?><br/>
+    回复留言内容:<?php echo $item['replay']; ?><br/>
+    留言时间:<?php echo date("Y-m-d H:i:s", $item['message_time']); ?>
+    <hr style="width: 99%"/>
+<?php endforeach; ?>
 
 <textarea id="message">
 </textarea>

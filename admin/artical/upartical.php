@@ -38,7 +38,7 @@ if ($_REQUEST['artical_id'] && $_REQUEST['method'] == 'updateShow') {
 <?php if (isset($classifys)): ?>
     <?php foreach ($classifys as $item): ?>
         <input name="column_id" type="radio"
-               value="1" <?php echo $item['column_id'] == $result['column_id'] ? 'checked=checked' : ''; ?>/><?php echo $item['column_name'] ?>
+               value="<?php echo $item['column_id'];?>" <?php echo $item['column_id'] == $result['column_id'] ? 'checked=checked' : ''; ?>/><?php echo $item['column_name'] ?>
     <?php endforeach; ?>
 <?php else: ?>
     目前暂时没有分类

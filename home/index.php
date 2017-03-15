@@ -12,10 +12,11 @@ const TABLE_A = 't_artical';
 //$sql = "select c.*,a.* from ".TABLE_C." as c left join ".TABLE_A." as a on a.column_id = c.column_id";
 //$result = $db->query($sql);
 //var_dump($result);
-$sql1 = "select * from " . TABLE_A;
+$sql1 = "select * from " . TABLE_A . " order by alert_time desc";    //文章的显示  排序（按置顶的方式（按时间））
 $sql2 = "select * from " . TABLE_C;
 $result1 = $db->query($sql1);
 $result2 = $db->query($sql2);
+
 ?>
 
 <!doctype html>
@@ -31,13 +32,15 @@ $result2 = $db->query($sql2);
 
 <?php foreach ($result2 as $one): ?>
     <h2><?php echo $one['column_name'] ?></h2>
+    <hr />
     <?php foreach ($result1 as $item): ?>
         <?php if ($one['column_id'] == $item['column_id']): ?>
-            <h3>
-                <a href="show.php/?artical_id=<?php echo $item['artical_id']; ?>"><?php echo $item['artical_title'] ?></a>
+            <h3 >
+                <a style="<?php echo $item['is_red'] == 1?"color:red;":"";?>" href="show.php/?artical_id=<?php echo $item['artical_id']; ?>"><?php echo $item['artical_title'] ?></a>
             </h3>
         <?php endif; ?>
     <?php endforeach; ?>
+    <hr />
 <?php endforeach; ?>
 
 </body>

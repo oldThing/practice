@@ -13,6 +13,7 @@ if ($_REQUEST['artical_id']) {
     $db = MyPDO::getInstance('localhost', 'root', '', 'practice', 'utf-8');
     $arrayDataValue = [
         "is_top" => 0,
+        "alert_time" => 0
     ];
     $where = "artical_id=".$artical_id;
     $result = $db->update(TABLE_A, $arrayDataValue, $where);

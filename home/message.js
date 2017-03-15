@@ -1,4 +1,4 @@
-function showOK(num,ip) {
+function showOK(num, ip) {
     var message = document.getElementById("message").value;
     var artical_id = document.getElementById("artical_id").value;
     var ip = document.getElementById("ip").value;
@@ -7,15 +7,15 @@ function showOK(num,ip) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
             // alert(xhr.responseText);
-            var info = eval('('+xhr.responseText+')');
+            var info = eval('(' + xhr.responseText + ')');
             alert(info.message);
-            window.location.href = "../show.php/?artical_id="+artical_id;
+            window.location.href = "../show.php/?artical_id=" + artical_id;
         }
     }
     var postData = {
-        "message"   : message,
+        "message": message,
         "artical_id": artical_id,
-        "ip"        : ip
+        "ip": ip
     }
     var postData = (function (obj) { // 转成post需要的字符串.
         var str = "";

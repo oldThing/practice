@@ -61,6 +61,7 @@ function upArticalOk() {
             column_id = artical_columns[i].value
         }
     }
+    alert(column_id);
 
     var postData = {
         "artical_id": artical_id,
