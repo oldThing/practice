@@ -23,10 +23,10 @@ $pageStr = $page->fpage();
     <title>Title</title>
     <script type="text/javascript" src="artical.js"></script>
 </head>
-<body>
+<body id="result">
 <a href="../index.html">首页</a>
 <a href="addArtical.php">添加文章</a>
-<table id="result" style="border: 1px solid">
+<table style="border: 1px solid">
     <tr>
         <th>编号</th>
         <th>标题</th>

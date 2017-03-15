@@ -23,9 +23,9 @@ $pageStr = $page->fpage();
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body id="result2">
 <a href="../index.html">首页</a><a href="addClassify.php">添加分类</a>
-<table id="result2" style="border: 1px solid">
+<table  style="border: 1px solid">
     <tr>
         <th>分类ID</th>
         <th>分类名</th>
