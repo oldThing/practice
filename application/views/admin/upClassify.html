@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更改分类</title>
+    <script type="text/javascript" src="/practice/public/js/classify.js"></script>
+</head>
+<body>
+分类名:<input type="text" id="up_column_name" value="<?php if (isset($column_name)) echo $column_name; else echo ''; ?>"/>
+<input id="column_id" value="<?php echo $column_id; ?>" hidden/>
+<button onclick="updateClassifyOK()">确定</button>
+</body>
+
+</html>

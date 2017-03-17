@@ -21,7 +21,7 @@ $pageStr = $page->fpage();
     <title>Title</title>
 </head>
 <body id="result3">
-<a href="../index.html">首页</a>
+<a href="../../../views/admin/index.html">首页</a>
 <table style="border: solid 1px;">
     <tr>
         <th>序号</th>
@@ -41,8 +41,8 @@ $pageStr = $page->fpage();
             <td><?php echo $item['artical_title']; ?></td>
             <td><?php echo $item['replay'] != "" ? "是" : "否"; ?></td>
             <td>
-                <a href="replay.php/?message_id=<?php echo $item['message_id']; ?>">回复留言</a>
-                <a href="delMessage.php/?message_id=<?php echo $item['message_id']; ?>">删除留言</a>
+                <a href="replay.php?message_id=<?php echo $item['message_id']; ?>">回复留言</a>
+                <a href="delMessage.php?message_id=<?php echo $item['message_id']; ?>">删除留言</a>
             </td>
         </tr>
     <?php endforeach; ?>

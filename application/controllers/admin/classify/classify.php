@@ -24,7 +24,7 @@ $pageStr = $page->fpage();
     <title>Title</title>
 </head>
 <body id="result2">
-<a href="../index.html">首页</a><a href="addClassify.php">添加分类</a>
+<a href="../../../views/admin/index.html">首页</a><a href="addClassify.php">添加分类</a>
 <table style="border: 1px solid">
     <tr>
         <th>分类ID</th>
@@ -37,8 +37,8 @@ $pageStr = $page->fpage();
             <td><?php echo($key + 1); ?></td>
             <td><?php echo $item['column_name']; ?></td>
             <td>
-                <a href="./delClassify.php/?column_id=<?php echo $item['column_id']; ?>">删除</a>
-                <a href="./updateClassify.php/?column_id=<?php echo $item['column_id']; ?>">修改</a>
+                <a href="delClassify.php?column_id=<?php echo $item['column_id']; ?>">删除</a>
+                <a href="updateClassify.php?column_id=<?php echo $item['column_id']; ?>">修改</a>
             </td>
         </tr>
     <?php endforeach; ?>

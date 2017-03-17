@@ -36,7 +36,7 @@ $result2 = $db->query($sql2);
     <?php foreach ($result1 as $item): ?>
         <?php if ($one['column_id'] == $item['column_id']): ?>
             <h3 >
-                <a style="<?php echo $item['is_red'] == 1?"color:red;":"";?>" href="show.php/?artical_id=<?php echo $item['artical_id']; ?>"><?php echo $item['artical_title'] ?></a>
+                <a style="<?php echo $item['is_red'] == 1?"color:red;":"";?>" href="show.php?artical_id=<?php echo $item['artical_id']; ?>"><?php echo $item['artical_title'] ?></a>
             </h3>
         <?php endif; ?>
     <?php endforeach; ?>

@@ -17,7 +17,7 @@ function OK() {
             // console.log(text);
             if(info.errorNo == 0){             //如果登录成功，跳转到首页
                 //跳转到首页路径
-                location.href = "./index.html";
+                location.href = "../../views/admin/index.html";
             } else {
                 alert(info.message);
             }

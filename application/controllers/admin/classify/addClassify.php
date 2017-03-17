@@ -42,7 +42,7 @@ if (isset($_REQUEST['column_name']) && !isset($_REQUEST['column_id'])) {
 <head>
     <meta charset="UTF-8">
     <title>添加分类</title>
-    <script type="text/javascript" src="classify.js"></script>
+    <script type="text/javascript" src="../../../../public/js/classify.js"></script>
 </head>
 <body>
 分类名:<input type="text" id="column_name"/>
