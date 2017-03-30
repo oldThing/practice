@@ -1,4 +1,4 @@
-function showOK(num, ip) {
+function showOK() {
     var message = document.getElementById("message").value;
     var artical_id = document.getElementById("artical_id").value;
     var ip = document.getElementById("ip").value;
@@ -9,7 +9,7 @@ function showOK(num, ip) {
             // alert(xhr.responseText);
             var info = eval('(' + xhr.responseText + ')');
             alert(info.message);
-            window.location.href = "../show.php/?artical_id=" + artical_id;
+            window.location.href = "index.php?p=home&c=Article&a=show&artical_id=" + artical_id;
         }
     }
     var postData = {
@@ -25,7 +25,7 @@ function showOK(num, ip) {
         return str;
     })(postData);
 
-    xhr.open("post", '../message.php');
+    xhr.open("post", 'index.php?p=home&c=Article&a=replay');
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //3.发送请求
     xhr.send(postData);

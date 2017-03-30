@@ -21,7 +21,7 @@ $pageStr = $page->fpage();
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript" src="artical.js"></script>
+    <script type="text/javascript" src="../../../../public/js/artical.js"></script>
 </head>
 <body id="result">
 <a href="../../../views/admin/index.html">首页</a>
@@ -42,16 +42,20 @@ $pageStr = $page->fpage();
             <td><?php echo $value['artical_title']; ?></td>
             <td><?php echo $value['artical_comment']; ?></td>
             <td><?php echo $value['column_id']; ?></td>
-            <td><a href="<?php echo $value['is_red'] == 0? 'titlered.php':'canclered.php';?>/?artical_id=<?php echo $value['artical_id'] ?>"><?php echo $value['is_red'] == 1 ? "取消加红":"未加红";?></a></td>
-            <td><a href="<?php echo $value['is_top'] == 0? 'stick.php':'canclestick.php'?>/?artical_id=<?php echo $value['artical_id'] ?>"><?php echo $value['is_top'] == 1 ? "取消置顶":"未置顶";?></a></td>
             <td>
-                <a href="delartical.php?artical_id=<?php echo $value['artical_id']?>">删除</a>
-                <a href="upartical.php?artical_id=<?php echo $value['artical_id']?>&method=updateShow">修改</a>
+                <a href="<?php echo $value['is_red'] == 0 ? 'titlered.php' : 'canclered.php'; ?>/?artical_id=<?php echo $value['artical_id'] ?>"><?php echo $value['is_red'] == 1 ? "取消加红" : "未加红"; ?></a>
+            </td>
+            <td>
+                <a href="<?php echo $value['is_top'] == 0 ? 'stick.php' : 'canclestick.php' ?>/?artical_id=<?php echo $value['artical_id'] ?>"><?php echo $value['is_top'] == 1 ? "取消置顶" : "未置顶"; ?></a>
+            </td>
+            <td>
+                <a href="delartical.php?artical_id=<?php echo $value['artical_id'] ?>">删除</a>
+                <a href="upartical.php?artical_id=<?php echo $value['artical_id'] ?>&method=updateShow">修改</a>
             </td>
         </tr>
     <?php endforeach; ?>
     <tr style="text-align: center;">
-        <td colspan="7"><?php echo $pageStr ?></td>
+        <td colspan="7"><?php echo $pageStr; ?></td>
     </tr>
 </table>
 </body>

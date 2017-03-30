@@ -27,16 +27,11 @@
 		private function getUri($pa){
 			$url=$_SERVER["REQUEST_URI"].(strpos($_SERVER["REQUEST_URI"], '?')?'':"?").$pa;
 			$parse=parse_url($url);
-
-		
-
 			if(isset($parse["query"])){
 				parse_str($parse['query'],$params);
 				unset($params["page"]);
 				$url=$parse['path'].'?'.http_build_query($params);
-				
 			}
-
 			return $url;
 		}
 

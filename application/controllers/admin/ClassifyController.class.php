@@ -38,11 +38,8 @@ class ClassifyController extends Controller
             ];
             $result = $classify->add(TABLE_C, $arrayDataValue);
             if ($result) {
-
                 $errorCode = $this->jsonObject(0,"添加成功");
-
             } else {
-
                 $errorCode = $this->jsonObject(1,"添加失败");
             }
             echo $errorCode;
@@ -68,7 +65,6 @@ class ClassifyController extends Controller
             $quertStr = "select * from ".TABLE_C. " where column_id = $column_id";
             $result = $classify->inquire($quertStr, "Row");
             $column_name = $result['column_name'];
-//    $db->update('t_classify', $arrayDataValue, $wehere , true);
             include CUR_VIEW_PATH."upClassify.html";
         }
 
@@ -88,7 +84,5 @@ class ClassifyController extends Controller
             echo $errorCode;
             exit();
         }
-
-
     }
 }

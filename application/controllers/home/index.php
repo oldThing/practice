@@ -9,9 +9,7 @@ include "../MyPDO.class.php";
 $db = MyPDO::getInstance('localhost', 'root', '', 'practice', 'utf-8');
 const TABLE_C = 't_classify';
 const TABLE_A = 't_artical';
-//$sql = "select c.*,a.* from ".TABLE_C." as c left join ".TABLE_A." as a on a.column_id = c.column_id";
-//$result = $db->query($sql);
-//var_dump($result);
+
 $sql1 = "select * from " . TABLE_A . " order by alert_time desc";    //文章的显示  排序（按置顶的方式（按时间））
 $sql2 = "select * from " . TABLE_C;
 $result1 = $db->query($sql1);

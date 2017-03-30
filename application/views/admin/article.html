@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/practice/public/js/artical.js"></script>
+</head>
+<body id="result">
+<a href="index.php?p=admin&c=Index&a=index">首页</a>
+<a href="index.php?p=admin&c=Artical&a=addArticle">添加文章</a>
+<table style="border: 1px solid">
+    <tr>
+        <th>编号</th>
+        <th>标题</th>
+        <th>内容</th>
+        <th>所属栏目</th>
+        <th>是否加红</th>
+        <th>是否置顶</th>
+        <th>操作</th>
+    </tr>
+    <?php foreach ($result as $key => $value): ?>
+    <tr style="text-align: center;">
+        <td><?php echo($key + 1); ?></td>
+        <td><?php echo $value['artical_title']; ?></td>
+        <td><?php echo $value['artical_comment']; ?></td>
+        <td><?php echo $value['column_id']; ?></td>
+        <!--<td><a href="<?php echo $value['is_red'] == 0? 'titlered.php':'canclered.php';?>/?artical_id=<?php echo $value['artical_id'] ?>&is_top=<?php echo $value['is_red'];?>"><?php echo $value['is_red'] == 1 ? "取消加红":"未加红";?></a></td>-->
+        <td><a href="index.php?p=admin&c=Artical&a=red&artical_id=<?php echo $value['artical_id'] ?>&is_red=<?php echo $value['is_red'];?>"><?php echo $value['is_red'] == 1 ? "取消加红":"未加红";?></a></td>
+        <!--<td><a href="<?php echo $value['is_top'] == 0? 'stick.php':'canclestick.php'?>/?artical_id=<?php echo $value['artical_id'] ?>"><?php echo $value['is_top'] == 1 ? "取消置顶":"未置顶";?></a></td>-->
+        <td><a href="index.php?p=admin&c=Artical&a=top&artical_id=<?php echo $value['artical_id'] ?>&is_top=<?php echo $value['is_top'];?>"><?php echo $value['is_top'] == 1 ? "取消置顶":"未置顶";?></a></td>
+        <td>
+            <a href="index.php?p=admin&c=Artical&a=delArticle&artical_id=<?php echo $value['artical_id']?>">删除</a>
+            <!--<a href="../../controllers/admin/artical/upartical.php?artical_id=<?php echo $value['artical_id']?>&method=updateShow">修改</a>-->
+            <a href="index.php?p=admin&c=Artical&a=upArticle&artical_id=<?php echo $value['artical_id']?>&method=updateShow">修改</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+    <tr style="text-align: center;">
+        <td colspan="7"><?php echo $pageStr ?></td>
+    </tr>
+</table>
+</body>
+<script type="text/javascript">
+    //函数封装，实现ajax获取分页信息
+    function showpage(url) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                document.getElementById('result').innerHTML = xhr.responseText;
+            }
+        }
+        xhr.open('get', url);
+        xhr.send(null);
+    }
+</script>
+</html>

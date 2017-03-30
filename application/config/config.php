@@ -6,7 +6,7 @@
  * Time: 14:04
  */
 return array(
-    "host"          =>          "localhost",
+    "host"          =>          "127.0.0.1",
     "user"          =>          "root",
     "password"      =>          "",
     "dbname"        =>          "practice",

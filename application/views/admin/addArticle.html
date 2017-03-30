@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/practice/public/js/artical.js"></script>
+</head>
+<body>
+<form action="post">
+    标题:<input name="artical_title" id="artical_title"/><br/>
+    内容:<textarea rows="10" id="artical_comment"></textarea> <br/>
+    所属栏目：
+    <?php if (isset($classifys)): ?>
+    <?php foreach ($classifys as $item): ?>
+    <input name="column_id" type="radio" value="<?php echo $item['column_id'];?>"/><?php echo $item['column_name'] ?>
+    <?php endforeach; ?>
+    <?php else: ?>
+    目前暂时没有分类
+    <?php endif; ?>
+    <br/>
+    <!--<button onclick="articalOk()">确定</button>-->
+    <input onclick="articalOk()">确定</input>
+</form>
+</body>
+</html>

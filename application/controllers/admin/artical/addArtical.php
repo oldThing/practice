@@ -52,7 +52,7 @@ $classifys = $db->query($sqlStr);
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript" src="artical.js"></script>
+    <script type="text/javascript" src="../../../../public/js/artical.js"></script>
 </head>
 <body>
 标题:<input name="artical_title" id="artical_title"/><br/>

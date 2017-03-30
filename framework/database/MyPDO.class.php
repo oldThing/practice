@@ -21,6 +21,7 @@ class MyPDO
             self::$_db = new PDO($this->dsn, $user, $pwd);
             self::$_db->exec("SET character_set_connection='.$dbCharset.', character_set_results='.$dbCharset.', character_set_client=binary");  //字符集
         } catch (PDOException $e) {
+            echo $e;
             echo "数据库连接失败";
         }
     }

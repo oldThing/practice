@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <!--<script type="text/javascript" src="/practice/public/js/login.js"></script>-->
+</head>
+<body>
+    <form method="post" name="login" id="login" action="index.php?p=admin&c=Login&a=doLogin" onsubmit="return submitFrm(this)" >
+    用户名:<input type="text" class="username" id="username" /><br />
+    密&nbsp;&nbsp;&nbsp;&nbsp;码:<input type="text" class="password" id="password"/><br />
+    <input type="submit"  class="button" name="loginsubmit" value="确定" />
+    </form>
+</body>
+<script>
+    function submitFrm() {
+        var username = document.getElementsByClassName('username')[0].value;
+        var password = document.getElementsByClassName('password')[0].value;
+        if (username == "" ){
+            alert("请填写用户名");
+            return false;
+        }
+        if (password == ""){
+            alert("请填写密码");
+            return false;
+        }
+    }
+</script>
+</html>
